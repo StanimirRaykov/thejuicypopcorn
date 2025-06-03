@@ -1,0 +1,149 @@
+[
+  {
+    "id": 1,
+    "title": "Top Gun",
+    "image": "1.jpg",
+    "genre": "action",
+    "rating": "7.0"
+  },
+  {
+    "id": 2,
+    "title": "Pirates of the Caribbean: The Curse of the Black Pearl",
+    "image": "2.jpg",
+    "genre": "fantasy",
+    "rating": "8.1"
+  },
+  {
+    "id": 3,
+    "title": "Ocean's Twelve",
+    "image": "3.jpg",
+    "genre": "crime",
+    "rating": "6.3"
+  },
+  {
+    "id": 4,
+    "title": "The Tourist",
+    "image": "4.jpg",
+    "genre": "action",
+    "rating": "6.0"
+  },
+  {
+    "id": 5,
+    "title": "Ford v Ferrari",
+    "image": "5.jpg",
+    "genre": "drama",
+    "rating": "8.1"
+  },
+  {
+    "id": 6,
+    "title": "Men in Black",
+    "image": "6.jpg",
+    "genre": "fantasy",
+    "rating": "7.3"
+  },
+  {
+    "id": 7,
+    "title": "Rocky",
+    "image": "7.jpg",
+    "genre": "drama",
+    "rating": "8.1"
+  },
+  {
+    "id": 8,
+    "title": "The Godfather",
+    "image": "8.jpg",
+    "genre": "crime",
+    "rating": "9.2"
+  },
+  {
+    "id": 9,
+    "title": "The Silence of the Lambs",
+    "image": "9.jpg",
+    "genre": "crime",
+    "rating": "8.6"
+  },
+  {
+    "id": 10,
+    "title": "It",
+    "image": "10.jpg",
+    "genre": "horror",
+    "rating": "7.3"
+  },
+  {
+    "id": 11,
+    "title": "Schindler's List",
+    "image": "11.jpg",
+    "genre": "drama",
+    "rating": "8.9"
+  },
+  {
+    "id": 12,
+    "title": "The Matrix",
+    "image": "12.jpg",
+    "genre": "action",
+    "rating": "8.7"
+  },
+  {
+    "id": 13,
+    "title": "Twilight",
+    "image": "13.jpg",
+    "genre": "fantasy",
+    "rating": "5.3"
+  },
+  {
+    "id": 14,
+    "title": "Suicide Squad",
+    "image": "14.jpg",
+    "genre": "action",
+    "rating": "5.9"
+  },
+  {
+    "id": 15,
+    "title": "The Nun",
+    "image": "15.jpg",
+    "genre": "horror",
+    "rating": "5.3"
+  },
+  {
+    "id": 16,
+    "title": "The Lord of the Rings: The Return of the King",
+    "image": "16.jpg",
+    "genre": "fantasy",
+    "rating": "8.9"
+  },
+  {
+    "id": 17,
+    "title": "Fight Club",
+    "image": "17.jpg",
+    "genre": "drama",
+    "rating": "8.8"
+  },
+  {
+    "id": 18,
+    "title": "The Exorcist",
+    "image": "18.jpg",
+    "genre": "horror",
+    "rating": "8.0"
+  },
+  {
+    "id": 19,
+    "title": "Venom",
+    "image": "19.jpg",
+    "genre": "action",
+    "rating": "6.6"
+  },
+  {
+    "id": 20,
+    "title": "Bohemian Rhapsody",
+    "image": "20.jpg",
+    "genre": "drama",
+    "rating": "7.9"
+  },
+  {
+    "id": 21,
+    "title": "The Batman",
+    "image": "21.jpg",
+    "genre": "crime",
+    "rating": "7.8"
+  }
+]
