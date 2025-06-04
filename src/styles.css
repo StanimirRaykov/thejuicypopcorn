@@ -293,3 +293,8 @@ input:checked + .slider {
   color: #9BCD37;
   text-decoration: none;
 }
+
+.error {
+  color: red;
+  margin-top: 10px;
+}

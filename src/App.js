@@ -7,12 +7,22 @@ import Watchlist from "./components/Watchlist";
 import MovieDetail from "./components/MovieDetail";
 import LoginPage from "./components/LoginPage";
 import RegisterPage from "./components/RegisterPage";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link,
+  Navigate,
+  useNavigate,
+} from "react-router-dom";
 import { useState, useEffect } from "react";
 
 function App() {
   const [movies, setMovies] = useState([]);
   const [watchlist, setWatchlist] = useState([]);
+  const [loggedIn, setLoggedIn] = useState(
+    localStorage.getItem("loggedIn") === "true"
+  );
 
   useEffect(() => {
     fetch("movies.json")
@@ -28,6 +38,11 @@ function App() {
     );
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem("loggedIn");
+    setLoggedIn(false);
+  };
+
   return (
     <div className="App">
       <div className="container">
@@ -36,18 +51,31 @@ function App() {
         <Router>
           <nav>
             <ul>
-              <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
-                <Link to="/watchlist">Watchlist</Link>
-              </li>
-              <li>
-                <Link to="/loginpage">Login</Link>
-              </li>
-              <li>
-                <Link to="/registerpage">Register</Link>
-              </li>
+              {loggedIn && (
+                <>
+                  <li>
+                    <Link to="/">Home</Link>
+                  </li>
+                  <li>
+                    <Link to="/watchlist">Watchlist</Link>
+                  </li>
+                  <li>
+                    <button onClick={handleLogout} className="auth-button">
+                      Logout
+                    </button>
+                  </li>
+                </>
+              )}
+              {!loggedIn && (
+                <>
+                  <li>
+                    <Link to="/loginpage">Login</Link>
+                  </li>
+                  <li>
+                    <Link to="/registerpage">Register</Link>
+                  </li>
+                </>
+              )}
             </ul>
           </nav>
 
@@ -55,26 +83,46 @@ function App() {
             <Route
               path="/"
               element={
-                <MoviesGrid
-                  watchlist={watchlist}
-                  movies={movies}
-                  toggleWatchlist={toggleWatchlist}
-                />
+                loggedIn ? (
+                  <MoviesGrid
+                    watchlist={watchlist}
+                    movies={movies}
+                    toggleWatchlist={toggleWatchlist}
+                  />
+                ) : (
+                  <Navigate to="/loginpage" />
+                )
               }
-            ></Route>
+            />
             <Route
               path="/watchlist"
               element={
-                <Watchlist
-                  watchlist={watchlist}
-                  movies={movies}
-                  toggleWatchlist={toggleWatchlist}
-                />
+                loggedIn ? (
+                  <Watchlist
+                    watchlist={watchlist}
+                    movies={movies}
+                    toggleWatchlist={toggleWatchlist}
+                  />
+                ) : (
+                  <Navigate to="/loginpage" />
+                )
               }
-            ></Route>
-            <Route path="/movies/:id" element={<MovieDetail />}></Route>
-            <Route path="/loginpage" element={<LoginPage />}></Route>
-            <Route path="/registerpage" element={<RegisterPage />}></Route>
+            />
+            <Route path="/movies/:id" element={<MovieDetail />} />
+            <Route
+              path="/loginpage"
+              element={
+                loggedIn ? (
+                  <Navigate to="/" />
+                ) : (
+                  <LoginPage onLogin={() => setLoggedIn(true)} />
+                )
+              }
+            />
+            <Route
+              path="/registerpage"
+              element={loggedIn ? <Navigate to="/" /> : <RegisterPage />}
+            />
           </Routes>
         </Router>
       </div>
