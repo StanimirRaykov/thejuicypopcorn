@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import "../styles.css";
 
 export default function RegisterPage() {
-
-const [error, setError] = useState(null);
+  const [error, setError] = useState(null);
 
   const handleRegister = async (e) => {
     e.preventDefault();
