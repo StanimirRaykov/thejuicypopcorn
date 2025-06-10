@@ -2,7 +2,12 @@ import React from "react";
 import "../styles.css";
 import { Link } from "react-router-dom";
 
-export default function MovieCard({ movie, isWatchlisted, toggleWatchlist }) {
+export default function MovieCard({
+  movie,
+  isWatchlisted,
+  toggleWatchlist,
+  addToCart,
+}) {
   const handleError = (e) => {
     e.target.src = "images/default.jpg";
   };
@@ -49,6 +54,14 @@ export default function MovieCard({ movie, isWatchlisted, toggleWatchlist }) {
           </span>
         </span>
       </label>
+
+      <button
+        className="auth-button"
+        onClick={() => addToCart(movie)}
+        style={{ marginBottom: "10px" }}
+      >
+        Add to Cart
+      </button>
     </div>
   );
 }

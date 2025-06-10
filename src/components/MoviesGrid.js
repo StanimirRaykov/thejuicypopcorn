@@ -3,7 +3,7 @@ import MovieCard from "./MovieCard";
 
 import "../styles.css";
 
-export default function MoviesGrid({ movies, watchlist, toggleWatchlist }) {
+export default function MoviesGrid({ movies, watchlist, toggleWatchlist, addToCart }) {
   const [searchTerm, setSearchTerm] = useState([]);
 
   const [genre, setGenre] = useState("All Genres");
@@ -103,6 +103,7 @@ export default function MoviesGrid({ movies, watchlist, toggleWatchlist }) {
             key={movie.id}
             toggleWatchlist={toggleWatchlist}
             isWatchlisted={watchlist.includes(movie.id)}
+            addToCart={addToCart}
           ></MovieCard>
         ))}
       </div>

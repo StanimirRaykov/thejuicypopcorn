@@ -165,27 +165,33 @@ nav {
   margin-bottom: 25px;
 }
 
-ul {
+nav ul {
   list-style-type: none;
-  margin: 0;  
+  margin: 0;
+  padding: 0;
   display: flex;
   justify-content: center;
+  gap: 10px; 
 }
 
-ul li {
-  padding: 10px;
+nav li {
+  display: inline-block; /* Ensures items stay in line */
 }
 
-nav a {
-  color:black;
+nav a, nav button {
+  color: black;
   text-decoration: none;
   padding: 10px 20px;
   border-radius: 50px;
   background-color: #ffffff;
-  box-shadow: 0 10px 10px 0 rgba(0, 0, 0, .5);
+  box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.5);
+  display: inline-block; /* Ensures consistent sizing */
+  border: none;
+  cursor: pointer;
+  font: inherit; /* Matches surrounding text */
 }
 
-nav a:hover {
+nav a:hover, nav button:hover {
   background-color: #E7F2F1;
   color: black;
 }
@@ -297,4 +303,12 @@ input:checked + .slider {
 .error {
   color: red;
   margin-top: 10px;
+}
+
+.cart-section {
+  margin-top: 20px;
+  padding: 10px;
+  border: 2px dashed #aaa;
+  background-color: #f9f9f9;
+  border-radius: 10px;
 }

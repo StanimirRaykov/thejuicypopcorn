@@ -1,7 +1,12 @@
 import "../styles.css";
 import MovieCard from "./MovieCard";
 
-export default function Watchlist({ movies, watchlist, toggleWatchlist }) {
+export default function Watchlist({
+  movies,
+  watchlist,
+  toggleWatchlist,
+  addToCart,
+}) {
   return (
     <div className="watchlist">
       {watchlist.map((id) => {
@@ -12,6 +17,7 @@ export default function Watchlist({ movies, watchlist, toggleWatchlist }) {
             movie={movie}
             toggleWatchlist={toggleWatchlist}
             isWatchlisted={true}
+            addToCart={addToCart}
           ></MovieCard>
         );
       })}

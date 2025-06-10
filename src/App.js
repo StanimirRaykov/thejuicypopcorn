@@ -7,6 +7,8 @@ import Watchlist from "./components/Watchlist";
 import MovieDetail from "./components/MovieDetail";
 import LoginPage from "./components/LoginPage";
 import RegisterPage from "./components/RegisterPage";
+import CartSidebar from "./components/CartSidebar";
+
 import {
   BrowserRouter as Router,
   Routes,
@@ -23,6 +25,8 @@ function App() {
   const [loggedIn, setLoggedIn] = useState(
     localStorage.getItem("loggedIn") === "true"
   );
+  const [cart, setCart] = useState([]);
+  const [isCartOpen, setIsCartOpen] = useState(false);
 
   useEffect(() => {
     fetch("movies.json")
@@ -43,6 +47,20 @@ function App() {
     setLoggedIn(false);
   };
 
+  const addToCart = (movie) => {
+    setCart((prev) => {
+      const existingItem = prev.find((m) => m.id === movie.id);
+      if (existingItem) {
+        return prev.map((item) =>
+          item.id === movie.id
+            ? { ...item, quantity: (item.quantity || 1) + 1 }
+            : item
+        );
+      }
+      return [...prev, { ...movie, quantity: 1 }];
+    });
+  };
+
   return (
     <div className="App">
       <div className="container">
@@ -60,8 +78,14 @@ function App() {
                     <Link to="/watchlist">Watchlist</Link>
                   </li>
                   <li>
-                    <button onClick={handleLogout} className="auth-button">
-                      Logout
+                    <button onClick={handleLogout}>Logout</button>
+                  </li>
+                  <li>
+                    <button
+                      className="cart-button"
+                      onClick={() => setIsCartOpen(true)}
+                    >
+                      Cart
                     </button>
                   </li>
                 </>
@@ -88,6 +112,7 @@ function App() {
                     watchlist={watchlist}
                     movies={movies}
                     toggleWatchlist={toggleWatchlist}
+                    addToCart={addToCart}
                   />
                 ) : (
                   <Navigate to="/loginpage" />
@@ -102,6 +127,7 @@ function App() {
                     watchlist={watchlist}
                     movies={movies}
                     toggleWatchlist={toggleWatchlist}
+                    addToCart={addToCart}
                   />
                 ) : (
                   <Navigate to="/loginpage" />
@@ -126,6 +152,13 @@ function App() {
           </Routes>
         </Router>
       </div>
+
+      <CartSidebar
+        cart={cart}
+        setCart={setCart}
+        isOpen={isCartOpen}
+        onClose={() => setIsCartOpen(false)}
+      />
 
       <Footer></Footer>
     </div>
