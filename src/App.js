@@ -78,15 +78,10 @@ function App() {
                     <Link to="/watchlist">Watchlist</Link>
                   </li>
                   <li>
-                    <button onClick={handleLogout}>Logout</button>
+                    <button onClick={() => setIsCartOpen(true)}>Cart</button>
                   </li>
                   <li>
-                    <button
-                      className="cart-button"
-                      onClick={() => setIsCartOpen(true)}
-                    >
-                      Cart
-                    </button>
+                    <button onClick={handleLogout}>Logout</button>
                   </li>
                 </>
               )}
