@@ -1,15 +1,12 @@
 import React from "react";
-import '../styles.css';
+import "../styles.css";
 
-export default function Footer(){
+export default function Footer() {
+  const currentYear = new Date().getFullYear();
 
-    const currentYear = new Date().getFullYear();
-
-    return(
-        <footer className='footer'>
-            <p className='footer-text'>
-            {currentYear} Movie Catalog
-            </p>
-        </footer>
-    );
+  return (
+    <footer className="footer">
+      <p className="footer-text">{currentYear} The Juicy Popcorn</p>
+    </footer>
+  );
 }

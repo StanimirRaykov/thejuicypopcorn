@@ -60,7 +60,7 @@ export default function MovieCard({
         onClick={() => addToCart(movie)}
         style={{ marginBottom: "10px" }}
       >
-        Add to Cart
+        Add to Cart {movie.price}
       </button>
     </div>
   );
