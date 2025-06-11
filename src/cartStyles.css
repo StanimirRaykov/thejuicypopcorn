@@ -179,3 +179,23 @@
 .checkout-button:hover {
   background-color: #9BCD37;
 }
+
+.simple-popup {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #ccfa5f;
+  color: #121212;
+  padding: 10px 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  z-index: 1000;
+  animation: fadeInOut 1.5s ease-in-out;
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translateY(10px); }
+  20% { opacity: 1; transform: translateY(0); }
+  80% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(10px); }
+}
