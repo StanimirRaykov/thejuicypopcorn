@@ -1,6 +1,4 @@
-// pages/MovieDetail.jsx
 import { useParams } from "react-router-dom";
-// or your source
 
 const MovieDetail = () => {
   const { id } = useParams();

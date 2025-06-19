@@ -22,7 +22,6 @@ export default function RegisterPage() {
 
       alert("Registration successful!");
       setError(null);
-      // Optionally redirect to login page
     } catch (err) {
       setError(err.message);
     }
